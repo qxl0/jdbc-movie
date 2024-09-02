@@ -55,4 +55,11 @@ public class MovieService {
             throw new NotFoundException(String.format("Movie with id %s not found", id));
         });
     }
+
+    public void addActor(MoviePlay moviePlay) {
+        int result = movieDao.insertActor(moviePlay);
+        if (result != 1) {
+            throw new IllegalStateException("oops something went wrong");
+        }
+    }
 }

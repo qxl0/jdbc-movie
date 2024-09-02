@@ -39,4 +39,9 @@ public class MovieController {
     public void updateMovie(@PathVariable("id") Integer id, @RequestBody Movie movie) {
         movieService.updateMovie(id, movie);
     }
+
+    @PostMapping("playby")
+    public void playMovie(@RequestBody MoviePlay moviePlay) {
+        movieService.addActor(moviePlay);
+    }
 }

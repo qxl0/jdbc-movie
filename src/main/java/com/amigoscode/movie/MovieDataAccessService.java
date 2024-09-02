@@ -71,4 +71,16 @@ public class MovieDataAccessService implements MovieDao {
                 movie.name(), movie.releaseDate(), id
         );
     }
+
+    @Override
+    public int insertActor(MoviePlay moviePlay) {
+        var sql = """
+                INSERT INTO acting (movie_id, actor_id)
+                VALUES (?, ?);
+                 """;
+        return jdbcTemplate.update(
+                sql,
+                moviePlay.getMovieId(), moviePlay.getActorId()
+        );
+    }
 }

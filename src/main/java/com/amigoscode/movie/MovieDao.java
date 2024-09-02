@@ -10,4 +10,6 @@ public interface MovieDao {
     Optional<Movie> selectMovieById(int id);
     // TODO: Update
     int updateMovie(int id, Movie movie);
+
+    int insertActor(MoviePlay moviePlay);
 }
