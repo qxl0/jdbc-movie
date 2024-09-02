@@ -12,6 +12,7 @@ public class MovieDataAccessService implements MovieDao {
     private final JdbcTemplate jdbcTemplate;
 
     public MovieDataAccessService(JdbcTemplate jdbcTemplate) {
+
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -58,4 +59,16 @@ public class MovieDataAccessService implements MovieDao {
                 .findFirst();
     }
 
+    @Override
+    public int updateMovie(int id, Movie movie) {
+        var sql = """
+                UPDATE movie
+                SET name = ?, release_date = ?
+                WHERE id = ?
+                 """;
+        return jdbcTemplate.update(
+                sql,
+                movie.name(), movie.releaseDate(), id
+        );
+    }
 }

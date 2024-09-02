@@ -3,8 +3,8 @@ app:
     main:
       driver-class-name: org.postgresql.Driver
       jdbc-url: jdbc:postgresql://localhost:5432/amigoscode
-      username: amigoscode
-      password: 'password'
+      username: sa
+      password: 'bhu8BHU*'
       pool-size: 30
 
 server:
